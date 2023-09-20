@@ -233,6 +233,14 @@ class UserArrayListTest {
         }
 
         @Test
+        void sort_null_element() {
+            integerArrayList.add(1);
+            integerArrayList.add(null);
+            integerArrayList.add(0);
+            assertThrows(NullPointerException.class, () -> integerArrayList.sort(Integer::compare));
+        }
+
+        @Test
         void sort_array_two_elements() {
             integerArrayList.add(1);
             integerArrayList.add(2);
@@ -268,7 +276,7 @@ class UserArrayListTest {
         }
 
         @Test
-        void array_sort() {
+        void array_sort_unique_elements() {
             int[] array = {1, 5, 2, 6, 3, 4, 7};
 
             for (int a : array) {
